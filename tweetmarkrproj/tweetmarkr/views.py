@@ -15,4 +15,4 @@ def tweet(request):
 	returnMap = {}
 	returnMap['tweets'] = tweets
 	returnMap['count'] = len(tweets)
-	return HttpResponse(json.dumps(tweets, default=json_util.default), mimetype="application/json")
+	return HttpResponse(json.dumps(returnMap, default=json_util.default), mimetype="application/json")
