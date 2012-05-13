@@ -9,10 +9,10 @@ def tweet(request):
 	db = mongoConnection.tweets
 	collection = db.tweets
 	tweets = []
-	for tweet in collection.find().sort('created_at', -1).limit(1):
+	for tweet in collection.find().sort('created_at', -1).limit(5):
 		tweets.append(tweet)
 	
 	returnMap = {}
-	returnMap['Name'] = 'Tim'
-	returnMap['Friend'] = 'Jason'
+	returnMap['tweets'] = tweets
+	returnMap['count'] = len(tweets)
 	return HttpResponse(json.dumps(tweets, default=json_util.default), mimetype="application/json")
