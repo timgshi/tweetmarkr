@@ -9,7 +9,7 @@ def tweet(request):
 	db = mongoConnection.tweets
 	collection = db.tweets
 	tweets = []
-	for tweet in collection.find().sort('created_at', 1).limit(1):
+	for tweet in collection.find().sort('created_at', -1).limit(1):
 		tweets.append(tweet)
 	
 	returnMap = {}
